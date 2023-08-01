@@ -11,14 +11,17 @@ import (
 	"time"
 )
 
+var (
+	data     []models.Form
+	settings config.Config
+)
+
 func main() {
 	file, err := os.Open("data.json")
 	if err != nil {
 		fmt.Printf("Error while opening data file: %s. Check if file data.json exists.", err)
 		return
 	}
-
-	var data []models.Form
 
 	parsedData, err := io.ReadAll(file)
 	if err != nil {
@@ -41,8 +44,6 @@ func main() {
 		fmt.Println("Error while opening settings file:", err)
 		return
 	}
-
-	var settings config.Config
 
 	parsedData, err = io.ReadAll(file)
 	if err != nil {

@@ -24,7 +24,7 @@ In this file all fields are required.
 
 `Credentials` - it is a base64-encoded .json file with a credentials to use Google Sheet API. You can get it while activating Google Sheet API. This is the default value that will be used unless otherwise specified for a particular Spreadsheet.
 
-`UpdatesPeriod` - it is a period of downtime between each iteration. You can use there `m` (like `20m`)for minutes and `h` for hours (like `2h`).
+`UpdatesPeriod` - it is a period of downtime between each iteration. You can use there `m` (like `20m`) for minutes and `h` for hours (like `2h`) or both of them (like `1h30m`).
 
 `SleepTimeStart` - it is an hour in 24-hours format when begins a period of program sleeping.
 
@@ -85,3 +85,7 @@ This program is written in the Golang language, so you will need to install Gola
 If you have Golang installed just type into terminal or command line to run it:
 
 `go run main.go`
+
+## If you need some help
+
+You can contact me via email: rostis.genesis@gmail.com or using Telegram: @rostis232
