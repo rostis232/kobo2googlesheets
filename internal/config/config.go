@@ -1,10 +1,8 @@
 package config
 
-import "time"
-
 type Config struct {
 	Credentials        string
-	UpdatesPeriod      time.Duration
+	UpdatesPeriod      string
 	SleepTimeStart     int
 	SleepTimeEnd       int
 	StandartSheetName  string
