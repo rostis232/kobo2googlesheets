@@ -17,51 +17,53 @@ var (
 )
 
 func main() {
-	file, err := os.Open("data.json")
-	if err != nil {
-		fmt.Printf("Error while opening data file: %s. Check if file data.json exists.", err)
-		return
-	}
-
-	parsedData, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("Error while reading data file:", err)
-		return
-	}
-
-	if file.Close() != nil {
-		fmt.Println("Error while closing file data.json: ", err)
-	}
-
-	err = json.Unmarshal(parsedData, &data)
-	if err != nil {
-		fmt.Println("Error while unmarshalling data from file:", err)
-		return
-	}
-
-	file, err = os.Open("settings.json")
-	if err != nil {
-		fmt.Println("Error while opening settings file:", err)
-		return
-	}
-
-	parsedData, err = io.ReadAll(file)
-	if err != nil {
-		fmt.Println("Error while reading settings file:", err)
-		return
-	}
-
-	if file.Close() != nil {
-		fmt.Println("Error while closing file config.json: ", err)
-	}
-
-	err = json.Unmarshal(parsedData, &settings)
-	if err != nil {
-		fmt.Println("Error while unmarshalling settings from file:", err)
-		return
-	}
 
 	for {
+
+		file, err := os.Open("data.json")
+		if err != nil {
+			fmt.Printf("Error while opening data file: %s. Check if file data.json exists.", err)
+			return
+		}
+
+		parsedData, err := io.ReadAll(file)
+		if err != nil {
+			fmt.Println("Error while reading data file:", err)
+			return
+		}
+
+		if file.Close() != nil {
+			fmt.Println("Error while closing file data.json: ", err)
+		}
+
+		err = json.Unmarshal(parsedData, &data)
+		if err != nil {
+			fmt.Println("Error while unmarshalling data from file:", err)
+			return
+		}
+
+		file, err = os.Open("settings.json")
+		if err != nil {
+			fmt.Println("Error while opening settings file:", err)
+			return
+		}
+
+		parsedData, err = io.ReadAll(file)
+		if err != nil {
+			fmt.Println("Error while reading settings file:", err)
+			return
+		}
+
+		if file.Close() != nil {
+			fmt.Println("Error while closing file config.json: ", err)
+		}
+
+		err = json.Unmarshal(parsedData, &settings)
+		if err != nil {
+			fmt.Println("Error while unmarshalling settings from file:", err)
+			return
+		}
+
 		iterationStartTime := time.Now()
 
 		if iterationStartTime.Hour() >= 1 && iterationStartTime.Hour() < 7 {
